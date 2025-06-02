@@ -3,8 +3,8 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: #222; /* Texto oscuro */
-  background-color: #e3e6ea; /* Fondo gris suave */
+  color: #222; 
+  background-color: #e3e6ea; 
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,7 +26,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #e3e6ea; /* Fondo gris suave */
+  background-color: #e3e6ea; 
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -57,7 +57,7 @@ input, textarea {
   padding: 0.5em;
   border-radius: 6px;
   border: 1px solid #bdbdbd;
-  background: #f7f8fa; /* Fondo input más suave */
+  background: #f7f8fa; 
   color: #222;
   margin-bottom: 1em;
   width: 100%;
@@ -72,7 +72,7 @@ input:focus, textarea:focus {
 table {
   width: 100%;
   border-collapse: collapse;
-  background: #f7f8fa; /* Fondo tabla más suave */
+  background: #f7f8fa; 
   margin-bottom: 2em;
 }
 th, td {
