@@ -28,7 +28,7 @@ function App() {
     }
   ])
 
-  // Estado para el diálogo de confirmación
+  
   const [dialogOpen, setDialogOpen] = useState(false)
   const [luAEliminar, setLuAEliminar] = useState(null)
 
@@ -87,7 +87,7 @@ function App() {
         </Routes>
       </main>
 
-      {/* Diálogo de confirmación */}
+      
       <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
         <DialogTitle sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <WarningAmberIcon color="warning" sx={{ fontSize: 32 }} />
