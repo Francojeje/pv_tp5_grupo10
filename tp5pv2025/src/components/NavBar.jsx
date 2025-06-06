@@ -1,23 +1,25 @@
-import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material'
+import { AppBar, Toolbar, Typography, Button, Box, IconButton, Tooltip } from '@mui/material'
 import SchoolIcon from '@mui/icons-material/School'
 import HomeIcon from '@mui/icons-material/Home'
 import PeopleIcon from '@mui/icons-material/People'
 import PersonAddIcon from '@mui/icons-material/PersonAdd'
 import InfoIcon from '@mui/icons-material/Info'
+import DarkModeIcon from '@mui/icons-material/DarkMode'
+import LightModeIcon from '@mui/icons-material/LightMode'
 import { Link, useLocation } from 'react-router-dom'
 
-export default function NavBar() {
+export default function NavBar({ darkMode, setDarkMode }) {
   const location = useLocation()
 
   return (
     <AppBar position="static" color="primary" elevation={3}>
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <SchoolIcon sx={{ mr: 1 }} />
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <SchoolIcon />
           <Typography
             variant="h6"
             sx={{
-              color: '#1976d2',
+              color: '#fff',
               fontWeight: 700,
               letterSpacing: 1,
               userSelect: 'none'
@@ -26,7 +28,8 @@ export default function NavBar() {
             Gestión de Alumnos
           </Typography>
         </Box>
-        <Box>
+
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <Button
             component={Link}
             to="/"
@@ -79,6 +82,13 @@ export default function NavBar() {
           >
             Acerca
           </Button>
+
+          {/* Botón de modo oscuro */}
+          <Tooltip title={darkMode ? 'Modo claro' : 'Modo oscuro'}>
+            <IconButton color="inherit" onClick={() => setDarkMode(!darkMode)}>
+              {darkMode ? <LightModeIcon /> : <DarkModeIcon />}
+            </IconButton>
+          </Tooltip>
         </Box>
       </Toolbar>
     </AppBar>

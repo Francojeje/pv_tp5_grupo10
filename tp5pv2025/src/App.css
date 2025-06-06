@@ -1,3 +1,17 @@
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #f4f6fb;
+  color: #222;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
 #root {
   min-height: 100vh;
   display: flex;
@@ -40,8 +54,23 @@
 
 .card {
   padding: 2em;
+  background-color: #fff;
+  color: #222;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark .card {
+  background-color: #1e1e1e;
+  color: #eee;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+body.dark .read-the-docs {
+  color: #bbb;
+}
+body.dark h4{
+  color: #fff;
 }

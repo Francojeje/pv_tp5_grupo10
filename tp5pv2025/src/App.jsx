@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Home from './components/Home'
@@ -16,6 +16,13 @@ import WarningAmberIcon from '@mui/icons-material/WarningAmber'
 import './App.css'
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false)
+
+  // Cambiar clase del body según el modo
+  useEffect(() => {
+    document.body.className = darkMode ? 'dark' : ''
+  }, [darkMode])
+
   const [alumnos, setAlumnos] = useState([
     {
       lu: 'APU00999',
@@ -28,7 +35,6 @@ function App() {
     }
   ])
 
-  
   const [dialogOpen, setDialogOpen] = useState(false)
   const [luAEliminar, setLuAEliminar] = useState(null)
 
@@ -49,27 +55,13 @@ function App() {
 
   return (
     <Router>
-      <NavBar />
+      <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/alumnos"
-            element={
-              <ListaAlumnos
-                alumnos={alumnos}
-                onEliminar={pedirConfirmacionEliminar}
-              />
-            }
-          />
-          <Route
-            path="/alumnos/nuevo"
-            element={<AlumnoForm onGuardar={agregarAlumno} alumnos={alumnos} />}
-          />
-          <Route
-            path="/alumnos/:id"
-            element={<AlumnoDetalle alumnos={alumnos} />}
-          />
+          <Route path="/alumnos" element={<ListaAlumnos alumnos={alumnos} onEliminar={pedirConfirmacionEliminar} />} />
+          <Route path="/alumnos/nuevo" element={<AlumnoForm onGuardar={agregarAlumno} alumnos={alumnos} />} />
+          <Route path="/alumnos/:id" element={<AlumnoDetalle alumnos={alumnos} />} />
           <Route
             path="/alumnos/:id/editar"
             element={
@@ -87,7 +79,6 @@ function App() {
         </Routes>
       </main>
 
-      
       <Dialog open={dialogOpen} onClose={() => setDialogOpen(false)}>
         <DialogTitle sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <WarningAmberIcon color="warning" sx={{ fontSize: 32 }} />
