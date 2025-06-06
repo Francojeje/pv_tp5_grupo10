@@ -17,7 +17,7 @@ import SettingsIcon from '@mui/icons-material/Settings'
 export default function ListaAlumnos({ alumnos, onEliminar }) {
   return (
     <Box sx={{ mt: 4, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <Typography variant="h4" sx={{ mb: 2, color: '#1a237e', fontWeight: 700 }}>
+      <Typography variant="h4" sx={{ mb: 2, color: '#55f', fontWeight: 700 }}>
         Lista de Alumnos
       </Typography>
       <TableContainer
